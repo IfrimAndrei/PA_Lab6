@@ -16,7 +16,6 @@ public class ControlPanel extends JPanel {
 
     //create all buttons (Load, Reset, Exit)
 
-
     public ControlPanel(MainFrame frame) {
         this.frame = frame;
         init();
@@ -57,7 +56,9 @@ public class ControlPanel extends JPanel {
         try {
             frame.canvas.image = ImageIO.read(chooser.getSelectedFile());
         } catch (IOException ex) { System.err.println(ex); }
-        frame.canvas.update(frame.canvas.graphics);
+        frame.canvas.graphics = frame.canvas.image.createGraphics();
+
+
     }
 
     private void save(ActionEvent e) {
